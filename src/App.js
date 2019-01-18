@@ -1,23 +1,56 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import axios from 'axios'
+import axios from 'axios';
+import fireGIF from './images/fire.gif';
+
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      playlist: [],
+      artistName: '',
+      albumName: '',
+      songName: ''
+    }   
+  }
+  
+  handleGetPlaylist() {
+    axios.get('http://localhost:4000/api/playlist')
+    .then(response => {
+      this.setState ({
+        playlist: response.data
+      })  
+    })  
+  }
+  
   render() {
     
-    componentDidMount() {
-      axios.get(/api/songs)  
+    if (!this.state.playlist.length) {
+      return (
+        <div className="nothing-here">
+          <img className="fire-pic" src={fireGIF} alt="fire" />
+          <button className="click-lit" onClick={() => this.handleGetPlaylist()}>Click for Lit</button>
+        </div>
+      )
     }
-    
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1> It's finna be lit, fam</h1>
-          <img src={logo} className="App-logo" alt="logo" />
-        </header>
-      </div>
-    );
+    else {
+      return (
+        <div className="App">
+          <div className="App-header">
+            <h1 className="title">It's finna be lit, fam</h1>
+            <img className="fire-pic-too" src={fireGIF} alt="fire" />
+          </div>
+          <div className="middle">
+            <h2>Add a new song to your playlist:</h2>
+            <input placeholder="Artist" />
+            <input placeholder="Album" /> 
+            <input placeholder="Song" /> 
+            <button className="add-button" >Add to Playlist</button>
+          </div>
+        </div>
+      );
+    }
   }
 }
 

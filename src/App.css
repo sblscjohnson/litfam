@@ -1,21 +1,69 @@
-.App {
-  text-align: center;
+.nothing-here {
+  background-color: #131313;  
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.fire-pic {
+  position: relative;
+  width: 6vw;
+  left: 47vw;
+}
+
+.click-lit {
+  position: relative;
+  margin-top: 3vh;
+  width: 10vw;
+  left: 45vw;
+}
+
+.App {
+  text-align: center;
+  background-color: rgba(214, 42, 7, .7);  
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;  
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #131313;
+  min-height: 15vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  
+}
+
+.fire-pic-too {
+  margin-left: 20px;
+  width: 45px;
+  position: relative;
+  top: 4vh;
+}
+
+.middle {
+  color: #131313;
+  margin-top: 3vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: 36vw;
+  width: 28vw;
+  height: 80vh;
+}
+
+input {
+  margin-top: 3vh; 
+}
+
+.add-button {
+  margin-top: 5vh;
+  position: relative;
+  left: 10vw;
+  width: 10vw;
 }
 
 .App-link {
