@@ -25,13 +25,17 @@
 
 .middle {
   color: #212121;
-  margin-top: 3vh;
+  margin-top: 10vh;
   display: flex;
   flex-direction: column;
   position: relative;
-  left: 36vw;
+  left: 33vw;
   width: 28vw;
   height: 30vh;
+  border: solid 10px #212121;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  padding-bottom: 5vh;
 }
 
 input {
@@ -41,17 +45,32 @@ input {
 .this-button {
   margin-top: 5vh;
   position: relative;
-  left: 10vw;
   width: 10vw;
+  left: 9vw;
   font-weight: bold;
 }
 
 .mapped-playlist {
   margin: 25vh;
+  margin-top: 12vh;
   background-color: #212121;
   color: white;  
   display: flex;
   justify-content: center;
+}
+
+.edit-image {
+  width: 2vw;
+  height: 2vw;
+  position: relative;
+  left: 22vw;
+}
+
+.trash-image {
+  width: 2vw;
+  height: 2vw;
+  position: relative;
+  left: 23vw;
 }
 
 .nothing-here {

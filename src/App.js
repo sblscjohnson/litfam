@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
-import fireGIF from './images/fire.gif';
 import Playlist from './Components/Playlist';
 
+import fireGIF from './images/fire.gif';
+import editPNG from './images/edit.png';
+import trashPNG from './images/trash.png';
 
 class App extends Component {
   constructor() {
@@ -16,6 +18,24 @@ class App extends Component {
     }   
   }
   
+  handleArtistInput(value) {
+    this.setState ({
+      artistName: value,
+    });  
+  }
+  
+  handleAlbumInput(value) {
+    this.setState ({
+      albumName: value
+    });  
+  }
+  
+  handleSongInput(value) {
+    this.setState ({
+      songName: value
+    })  
+  }
+  
   handleGetPlaylist() {
     axios.get('/api/playlist')
     .then(response => {
@@ -26,12 +46,36 @@ class App extends Component {
     })  
   }
   
+  handleAddSong() {
+    const bodyObj = {
+      artist: this.state.artistName,
+      album: this.state.albumName,
+      song: this.state.songName
+    }  
+    
+    axios.post('/api/playlist', bodyObj) 
+    .then(response => {
+      console.log(response);
+      this.setState({
+        playlist: response.data
+      })
+    })
+    
+    this.setState({
+      artistName: '',
+      albumName: '',
+      songName: ''
+    })
+  }
+
+  
   render() {
     let mappedPlaylist = this.state.playlist.map((eachSongObj) => {
       return (
         <div className="mapped-playlist">
           <Playlist key={eachSongObj.index} song={eachSongObj} />
-          <br />
+          <img className="edit-image" src={editPNG} alt="edit" />
+          <img className="trash-image" src={trashPNG} alt="trash" />
         </div>
       )
     })
@@ -46,13 +90,28 @@ class App extends Component {
           
           <main className="middle">
             <h2>Add a new song to your playlist:</h2>
-            <input placeholder="Artist" />
-            <input placeholder="Album" /> 
-            <input placeholder="Song" /> 
-            <button className="this-button" >Add to Playlist</button>
+            <input 
+            onChange={(e) => this.handleArtistInput(e.target.value)}
+            value={this.state.artistName}
+            placeholder="Artist" />
+            <input 
+            onChange={(e) => this.handleAlbumInput(e.target.value)}
+            value={this.state.albumName}
+            placeholder="Album" /> 
+            <input 
+            onChange={(e) => this.handleSongInput(e.target.value)}
+            value={this.state.songName}
+            placeholder="Song" /> 
+            
+            <button className="this-button" 
+            onClick={() => this.handleAddSong()}
+            >
+            Add to Playlist
+            </button>
+        
           </main>
           
-          <div>
+          <div >
             {mappedPlaylist}  
           </div>
           

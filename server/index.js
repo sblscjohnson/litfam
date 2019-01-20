@@ -7,4 +7,6 @@ app.use(bodyParser.json())
 
 app.get('/api/playlist', ctrl.getPlaylist)
 
+app.post('/api/playlist', ctrl.addSong)
+
 app.listen(4000, () => console.log('4000 finna be lit, fam'))
