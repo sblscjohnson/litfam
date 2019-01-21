@@ -13,7 +13,6 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  
 }
 
 .fire-pic {
@@ -25,7 +24,7 @@
 
 .middle {
   color: #212121;
-  margin-top: 10vh;
+  margin-top: 8vh;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -51,30 +50,38 @@ input {
 }
 
 .mapped-playlist {
-  margin: 25vh;
-  margin-top: 12vh;
+  margin: 20vh;
+  margin-top: 8vh;
   background-color: #212121;
   color: white;  
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
+
+
 .edit-image {
-  width: 2vw;
-  height: 2vw;
   position: relative;
-  left: 22vw;
+  width: 2vw;
+  left: 2vw;
+}
+
+.edit-input {
+  position: relative;
+  bottom: 7px;
+  width: 15vw;
 }
 
 .trash-image {
   width: 2vw;
   height: 2vw;
-  position: relative;
-  left: 23vw;
+  margin: 1vh;
 }
 
+
 .nothing-here {
-  background-color: #212121;  
+  background-color: rgba(214, 42, 7, .7);  
   height: 100vh;
   display: flex;
   flex-direction: column;
